@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://studygenai-h8a7.onrender.com") 
 public class UploadController {
 
     @Autowired

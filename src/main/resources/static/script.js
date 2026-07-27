@@ -1,4 +1,7 @@
-// JavaScript is working
+// 1. SET YOUR BACKEND URL HERE
+const API_BASE_URL = "https://studygenai-backend.onrender.com"; 
+const FRONTEND_URL = window.location.origin; // Automatically gets https://studygenai-h8a7.onrender.com
+
 console.log("JavaScript is working!");
 
 
@@ -24,7 +27,7 @@ function uploadPDF() {
 
     // Call Spring Boot API
 
-    fetch("/api/upload",  {
+    fetch("https://studygenai-backend.onrender.com/api/upload", {
 
         method: "POST",
         body: formData
