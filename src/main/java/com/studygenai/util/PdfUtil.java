@@ -11,15 +11,37 @@ public class PdfUtil {
 
     public static String extractText(File file) throws IOException {
 
-        PDDocument document = Loader.loadPDF(file);
+        PDDocument document = null;
 
-        PDFTextStripper stripper = new PDFTextStripper();
+        try {
 
-        String text = stripper.getText(document);
+            System.out.println("Opening PDF: " + file.getAbsolutePath());
 
-        document.close();
+            document = Loader.loadPDF(file);
 
-        return text;
+            PDFTextStripper stripper = new PDFTextStripper();
+
+            String text = stripper.getText(document);
+
+            System.out.println("PDF loaded successfully.");
+            System.out.println("Extracted text length: " + text.length());
+
+            return text;
+
+        } catch (Exception e) {
+
+            System.out.println("Error while extracting PDF text:");
+            e.printStackTrace();
+
+            throw e;
+
+        } finally {
+
+            if (document != null) {
+                document.close();
+            }
+
+        }
 
     }
 
