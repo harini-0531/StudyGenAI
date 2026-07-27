@@ -24,7 +24,7 @@ function uploadPDF() {
 
     // Call Spring Boot API
 
-    fetch("http://localhost:8080/api/upload", {
+    fetch("/api/upload",  {
 
         method: "POST",
         body: formData
@@ -46,7 +46,7 @@ function uploadPDF() {
          console.log("Redirecting...");
 
     setTimeout(() => {
-        window.location.href = "http://localhost:8080/summary.html";
+        window.location.href = "/summary.html";
     }, 1000);
 
 
@@ -67,15 +67,15 @@ function generateSummary() {
     const summaryType =
         document.getElementById("summaryType").value;
 
-    fetch("http://localhost:8080/api/latest-document")
+    fetch("/api/latest-document")
 
         .then(response => response.json())
 
         .then(id => {
 
-            return fetch(
-                `http://localhost:8080/api/summary/${id}?type=${summaryType}`
-            );
+           return fetch(
+    `/api/summary/${id}?type=${summaryType}`
+);
 
         })
 
@@ -114,10 +114,11 @@ function generateStudyPlan() {
 document.getElementById("preferredTime").value;
 
     fetch(
-    `http://localhost:8080/api/planner?subjects=${encodeURIComponent(subjects)}&studyHours=${studyHours}&examDate=${examDate}&preferredTime=${preferredTime}`,
-    {
-        method: "POST"
-    }
+`/api/planner?subjects=${encodeURIComponent(subjects)}&studyHours=${studyHours}&examDate=${examDate}&preferredTime=${preferredTime}`,
+{
+    method: "POST"
+}
+
 )
     .then(response => response.text())
 
@@ -193,15 +194,15 @@ function generateQuiz() {
     const difficulty =
         document.getElementById("difficulty").value;
 
-    fetch("http://localhost:8080/api/latest-document")
+    fetch("/api/latest-document")
 
     .then(response => response.json())
 
     .then(id => {
 
         return fetch(
-            `http://localhost:8080/api/quiz/${id}?count=${questionCount}&difficulty=${difficulty}`
-        );
+    `/api/quiz/${id}?count=${questionCount}&difficulty=${difficulty}`
+);
 
     })
 
@@ -287,7 +288,7 @@ function askAI() {
     const question =
         document.getElementById("questionInput").value;
 
-    fetch("http://localhost:8080/api/chat/1", {
+   fetch("/api/chat/1", {
 
         method: "POST",
 
@@ -368,16 +369,15 @@ function generateFlashcards() {
     const count =
         document.getElementById("flashcardCount").value;
 
-    fetch("http://localhost:8080/api/latest-document")
+    fetch("/api/latest-document")
 
     .then(response => response.json())
 
     .then(id => {
 
         return fetch(
-            `http://localhost:8080/api/flashcards/${id}?count=${count}`
-        );
-
+    `/api/flashcards/${id}?count=${count}`
+);
     })
 
     .then(response => response.json())
