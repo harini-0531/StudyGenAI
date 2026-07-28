@@ -70,13 +70,21 @@ function generateSummary() {
     const summaryType =
         document.getElementById("summaryType").value;
 
+<<<<<<< HEAD
      fetch(`https://studygenai-backend.onrender.com/api/latest-document`)
+=======
+   fetch(`${https://studygenai-backend.onrender.com}/api/latest-document`)
+>>>>>>> d89352a3400cac9e28154f1c355085efffbf5acd
 
         .then(response => response.json())
 
         .then(id => {
 
+<<<<<<< HEAD
            return fetch(`https://studygenai-backend.onrender.com/api/summary/${id}?type=${summaryType}`);
+=======
+           return fetch(`${https://studygenai-backend.onrender.com}/api/summary/${id}?type=${summaryType}`);
+>>>>>>> d89352a3400cac9e28154f1c355085efffbf5acd
 
         })
 
@@ -115,11 +123,16 @@ function generateStudyPlan() {
 document.getElementById("preferredTime").value;
 
     fetch(
+<<<<<<< HEAD
     `https://studygenai-backend.onrender.com/api/planner?subjects=${encodeURIComponent(subjects)}&studyHours=${studyHours}&examDate=${examDate}&preferredTime=${preferredTime}`,
+=======
+    `${https://studygenai-backend.onrender.com}/api/planner?subjects=${encodeURIComponent(subjects)}&studyHours=${studyHours}&examDate=${examDate}&preferredTime=${preferredTime}`,
+>>>>>>> d89352a3400cac9e28154f1c355085efffbf5acd
     {
         method: "POST"
     }
 )
+
     .then(response => response.text())
 
     .then(data => {
@@ -194,13 +207,23 @@ function generateQuiz() {
     const difficulty =
         document.getElementById("difficulty").value;
 
+<<<<<<< HEAD
    fetch(`https://studygenai-backend.onrender.com/api/latest-document`)
+=======
+   fetch(`${https://studygenai-backend.onrender.com}/api/latest-document`)
+>>>>>>> d89352a3400cac9e28154f1c355085efffbf5acd
 
     .then(response => response.json())
 
     .then(id => {
 
+<<<<<<< HEAD
          return fetch(`https://studygenai-backend.onrender.com/api/quiz/${id}?count=${questionCount}&difficulty=${difficulty}`);
+=======
+       return fetch(`${https://studygenai-backend.onrender.com}/api/quiz/${id}?count=${questionCount}&difficulty=${difficulty}`);
+    })
+
+>>>>>>> d89352a3400cac9e28154f1c355085efffbf5acd
     })
 
 
@@ -286,13 +309,27 @@ function askAI() {
     const question =
         document.getElementById("questionInput").value;
 
+<<<<<<< HEAD
     fetch(`https://studygenai-backend.onrender.com/api/chat/1`, {
+=======
+   fetch(`${https://studygenai-backend.onrender.com}/api/chat/1`, {
+>>>>>>> d89352a3400cac9e28154f1c355085efffbf5acd
     method: "POST",
     headers: {
         "Content-Type": "application/json"
     },
     body: JSON.stringify({
         question: question
+<<<<<<< HEAD
+=======
+    })
+})
+
+        body: JSON.stringify({
+            question: question
+        })
+
+>>>>>>> d89352a3400cac9e28154f1c355085efffbf5acd
     })
 })
 
@@ -363,14 +400,22 @@ function generateFlashcards() {
     const count =
         document.getElementById("flashcardCount").value;
 
+<<<<<<< HEAD
     fetch(`https://studygenai-backend.onrender.com/api/latest-document`)
+=======
+    fetch(`${https://studygenai-backend.onrender.com}/api/latest-document`)
+>>>>>>> d89352a3400cac9e28154f1c355085efffbf5acd
 
     .then(response => response.json())
 
     .then(id => {
 
+<<<<<<< HEAD
     return fetch(`https://studygenai-backend.onrender.com/api/flashcards/${id}?count=${count}`);
 
+=======
+        return fetch(`${https://studygenai-backend.onrender.com}/api/flashcards/${id}?count=${count}`);
+>>>>>>> d89352a3400cac9e28154f1c355085efffbf5acd
     })
 
     .then(response => response.json())
