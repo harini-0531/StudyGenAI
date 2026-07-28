@@ -70,15 +70,13 @@ function generateSummary() {
     const summaryType =
         document.getElementById("summaryType").value;
 
-    fetch("/api/latest-document")
+     fetch(`https://studygenai-backend.onrender.com/api/latest-document`)
 
         .then(response => response.json())
 
         .then(id => {
 
-           return fetch(
-    `/api/summary/${id}?type=${summaryType}`
-);
+           return fetch(`https://studygenai-backend.onrender.com/api/summary/${id}?type=${summaryType}`);
 
         })
 
@@ -117,11 +115,10 @@ function generateStudyPlan() {
 document.getElementById("preferredTime").value;
 
     fetch(
-`/api/planner?subjects=${encodeURIComponent(subjects)}&studyHours=${studyHours}&examDate=${examDate}&preferredTime=${preferredTime}`,
-{
-    method: "POST"
-}
-
+    `https://studygenai-backend.onrender.com/api/planner?subjects=${encodeURIComponent(subjects)}&studyHours=${studyHours}&examDate=${examDate}&preferredTime=${preferredTime}`,
+    {
+        method: "POST"
+    }
 )
     .then(response => response.text())
 
@@ -197,17 +194,15 @@ function generateQuiz() {
     const difficulty =
         document.getElementById("difficulty").value;
 
-    fetch("/api/latest-document")
+   fetch(`https://studygenai-backend.onrender.com/api/latest-document`)
 
     .then(response => response.json())
 
     .then(id => {
 
-        return fetch(
-    `/api/quiz/${id}?count=${questionCount}&difficulty=${difficulty}`
-);
-
+         return fetch(`https://studygenai-backend.onrender.com/api/quiz/${id}?count=${questionCount}&difficulty=${difficulty}`);
     })
+
 
     .then(response => response.json())
 
@@ -291,19 +286,15 @@ function askAI() {
     const question =
         document.getElementById("questionInput").value;
 
-   fetch("/api/chat/1", {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-            question: question
-        })
-
+    fetch(`https://studygenai-backend.onrender.com/api/chat/1`, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        question: question
     })
+})
 
     .then(response => response.json())
 
@@ -372,15 +363,14 @@ function generateFlashcards() {
     const count =
         document.getElementById("flashcardCount").value;
 
-    fetch("/api/latest-document")
+    fetch(`https://studygenai-backend.onrender.com/api/latest-document`)
 
     .then(response => response.json())
 
     .then(id => {
 
-        return fetch(
-    `/api/flashcards/${id}?count=${count}`
-);
+    return fetch(`https://studygenai-backend.onrender.com/api/flashcards/${id}?count=${count}`);
+
     })
 
     .then(response => response.json())
