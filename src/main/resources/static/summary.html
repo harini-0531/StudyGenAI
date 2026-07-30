@@ -45,77 +45,61 @@
 
 
     <!-- Summary Generator Section -->
-
+<!-- 1. Wrap the entire container in a <main> tag -->
+<main>
     <div class="container mt-5">
-
         <div class="card shadow p-5">
-
             <h1 class="text-center mb-4">
-
                 AI Summary Generator
-
             </h1>
-
             <p class="text-center">
-
                 Generate concise and easy-to-understand summaries from your study materials.
-
             </p>
 
             <br>
 
             <!-- Summary Length -->
-
+            <!-- 2. This label is now correctly linked with 'for' -->
             <label class="form-label" for="summaryType">
-
                 Select Summary Type
-
             </label>
-
             <select id="summaryType" class="form-select">
-
                  <option value="Short">Short Summary</option>
                  <option value="Medium">Medium Summary</option>
                  <option value="Detailed">Detailed Summary</option>
-
             </select>
 
             <br>
 
             <!-- Generate Button -->
             <div class="text-center">
-            <button class="btn btn-primary me-3" onclick="generateSummary()">
-
-                Generate Summary
-
-            </button>
+                <button class="btn btn-primary me-3" onclick="generateSummary()">
+                    Generate Summary
+                </button>
             </div>
 
             <br><br>
 
             <!-- Summary Output -->
-
+            <!-- 3. Ensure this is an <h2> (which you have done) -->
             <h2>
-
                 Generated Summary
-
             </h2>
-
             <div id="summaryOutput" class="border rounded p-4">
-
                 Your AI-generated summary will be displayed here.
-
             </div>
 
             <br>
 
             <!-- Download Button -->
-
             <div class="text-center">
-
-    <button class="btn btn-success" onclick="downloadSummary()">
-        Download Summary
-    </button>
+                <button class="btn btn-success" onclick="downloadSummary()">
+                    Download Summary
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
 
 <a href="flashcards.html"
    class="btn btn-warning">
